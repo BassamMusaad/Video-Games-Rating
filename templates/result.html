@@ -1,0 +1,22 @@
+{% set title="Result" %}
+{% include 'header.html' %}
+
+<div class="card text-center">
+    <div class="card-header">
+        <img src="{{url_for('static', filename='dataset-cover.png')}}" alt="Image can't appear" width="100%" class="img-fluid">
+    </div>
+    <div class="card-body">
+
+    <h1 style="text-align: left;inset-inline: unset">The product of the model is {{ rating }} ( {{   description  }} )</h1>
+    <br>
+        <form action="{{url_for('index')}}" method="post">
+            <button type="submit" class="btn btn-outline-secondary" style="margin-top: 30px">Back</button>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        Thank You For Visit Us.
+    </div>
+</div>
+
+
+{% include 'footer.html' %}

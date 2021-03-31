@@ -1,0 +1,436 @@
+{% set title="Home" %}
+{% include 'header.html' %}
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <img src="{{url_for('static', filename='dataset-cover.png')}}" alt="Image can't appear" width="100%" class="img-fluid">
+    </div>
+    <div class="card-body">
+        <form action="{{url_for('predict')}}" method="post" class="container" enctype="multipart/form-data">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Name of the game:</span>
+                <input type="text" class="form-control" name="title" required>
+            </div>
+
+            <div style="margin-bottom: 5px">
+                <span style="float:left;">The console on which the game was released:</span>
+                <select class="form-select" name="console" aria-label="Default select example" required>
+                    <option selected value="None">Open this select menu</option>
+                    <option value="1">PS4 & Xbox_one</option>
+                    <option value="0">PS4</option>
+                </select>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Reference to and/or images of alcoholic beverages:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Alcohol_Reference" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Alcohol_Reference" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Discolored and/or unrealistic depictions of blood:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Animated_Blood" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Animated_Blood" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Depictions of blood:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Blood" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Blood" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Depictions of blood or the mutilation of body parts:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="BloodandGore" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="BloodandGore" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Violent actions involving cartoon-like situations and characters. May include violence where a character is unharmed after the action has been inflicted:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Cartoon_Violence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Cartoon_Violence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Depictions or dialogue involving vulgar antics, including "bathroom" humor:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Crude_Humor" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Crude_Humor" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Reference to and/or images of illegal drugs:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="DrugRe_ference" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="DrugRe_ference" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Violent actions of a fantasy nature, involving human or non-human characters in situations easily distinguishable from real life:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Fantasy_Violence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Fantasy_Violence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Graphic and realistic-looking depictions of physical conflict. May involve extreme and/or realistic blood and depictions of human injury and death:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Intense_Violence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Intense_Violence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Moderate use of profanity:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Language" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Language" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">References to profanity, sexuality, violence, alcohol, or drug use in music:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Lyrics" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Lyrics" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Depictions or dialogue involving "adult" humor, including sexual references:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mature_Humor" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mature_Humor" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Some blood:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Blood" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Blood" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Some violent actions involving cartoon:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildCartoonViolence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildCartoonViolence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Some violent actions of a fantasy nature:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildFantasyViolence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildFantasyViolence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Mild to moderate use of profanity:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Language" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Language" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Mild References to profanity, sexuality, violence, alcohol, or drug use in music:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Lyrics" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Lyrics" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">some provocative references or materials:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildSuggestiveThemes" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="MildSuggestiveThemes" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Some scenes involving aggressive conflict:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Violence" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Mild_Violence" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">No content descriptors:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="No_Descriptors" id="inlineRadio2" value="1" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="No_Descriptors" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Graphic or prolonged depictions of nudity:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Nudity" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Nudity" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Brief and/or mild depictions of nudity:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Partial_Nudity" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Partial_Nudity" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+            <br>
+            <div style="margin-bottom: 15px">
+                <span style="margin-bottom: 15px;float:left;">Non-explicit depictions of sexual behavior, possibly including partial nudity:</span>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Sexual_Content" id="inlineRadio2" value="0" required>
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+                <div class="form-check form-check-inline" style="float: right">
+                    <input class="form-check-input" type="radio" name="Sexual_Content" id="inlineRadio1" value="1" required>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+            </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">References to sex or sexuality:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Sexual_Themes" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Sexual_Themes" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">Player can gamble without betting or wagering real cash or currency:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Simulated_Gambling" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Simulated_Gambling" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">Explicit and/or frequent use of profanity:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Strong_Language" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Strong_Language" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">Explicit and/or frequent depictions of sexual behavior, possibly including nudity:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="StrongSexualContent" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="StrongSexualContent" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">Provocative references or materials:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Suggestive_Themes" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Suggestive_Themes" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">The consumption of alcoholic beverages:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="UseofAlcohol" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="UseofAlcohol" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">The consumption of alcoholic and drugs beverages:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="UseofDrugsandAlcohol" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="UseofDrugsandAlcohol" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+
+                <br>
+                <div style="margin-bottom: 15px">
+                    <span style="margin-bottom: 15px;float:left;">Scenes involving aggressive conflict. May contain bloodless dismemberment:</span>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Violence" id="inlineRadio2" value="0" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="float: right">
+                        <input class="form-check-input" type="radio" name="Violence" id="inlineRadio1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                </div>
+            <br style="margin-bottom: 45px">
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        </form>
+    </div>
+    <div class="card-footer text-muted" style="float: inherit">
+        Thank You For Visit Us.
+    </div>
+</div>
+
+{% include 'footer.html' %}
