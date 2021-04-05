@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34c1ef51-b0f2-47a8-8ec4-1ca42ca28f6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/complier3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../deploy-ml-model-flask-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -112,7 +109,9 @@
       <workItem from="1617091904520" duration="1021000" />
       <workItem from="1617138499751" duration="594000" />
       <workItem from="1617141316437" duration="905000" />
-      <workItem from="1617162126606" duration="8330000" />
+      <workItem from="1617162126606" duration="9023000" />
+      <workItem from="1617219386244" duration="519000" />
+      <workItem from="1617219984827" duration="27000" />
     </task>
     <servers />
   </component>
