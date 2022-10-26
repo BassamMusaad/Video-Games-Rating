@@ -23,7 +23,7 @@ decorator==4.4.2
 defusedxml==0.6.0
 Django==3.1.4
 docutils==0.15.2
-ecdsa==0.13.2
+ecdsa==0.14
 entrypoints==0.3
 Flask==1.1.2
 Flask-Cors==3.0.9
@@ -79,7 +79,7 @@ py==1.9.0
 pyasn1==0.4.8
 pycodestyle==2.6.0
 pycparser==2.20
-pycryptodome==3.3.1
+pycryptodome==3.6.6
 pydocstyle==5.1.1
 Pygments==2.8.0
 PyJWT==1.7.1
