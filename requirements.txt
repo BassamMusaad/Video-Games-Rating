@@ -21,7 +21,7 @@ colorama==0.4.3
 cryptography==3.2.1
 decorator==4.4.2
 defusedxml==0.6.0
-Django==3.1.4
+Django==3.2.18
 docutils==0.15.2
 ecdsa==0.13.2
 entrypoints==0.3
@@ -117,6 +117,6 @@ typing-extensions==3.7.4.3
 urllib3==1.26.2
 wcwidth==0.2.5
 webencodings==0.5.1
-Werkzeug==0.15.2
+Werkzeug==2.2.3
 wrapt==1.11.1
 zipp==3.4.0
