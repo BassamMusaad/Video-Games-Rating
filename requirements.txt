@@ -13,7 +13,7 @@ Babel==2.9.0
 backcall==0.2.0
 bleach==3.3.0
 botocore==1.19.25
-certifi==2020.12.5
+certifi==2023.7.22
 cffi==1.14.3
 chardet==4.0.0
 Click==7.0
