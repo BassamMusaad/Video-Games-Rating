@@ -18,7 +18,7 @@ cffi==1.14.3
 chardet==4.0.0
 Click==7.0
 colorama==0.4.3
-cryptography==3.2.1
+cryptography==41.0.5
 decorator==4.4.2
 defusedxml==0.6.0
 Django==3.1.4
@@ -117,6 +117,6 @@ typing-extensions==3.7.4.3
 urllib3==1.26.2
 wcwidth==0.2.5
 webencodings==0.5.1
-Werkzeug==0.15.2
+Werkzeug==3.0.1
 wrapt==1.11.1
 zipp==3.4.0
