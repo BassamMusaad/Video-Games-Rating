@@ -21,7 +21,7 @@ colorama==0.4.3
 cryptography==3.2.1
 decorator==4.4.2
 defusedxml==0.6.0
-Django==3.1.4
+Django==3.2.25
 docutils==0.15.2
 ecdsa==0.13.2
 entrypoints==0.3
