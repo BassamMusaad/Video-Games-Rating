@@ -26,7 +26,7 @@ docutils==0.15.2
 ecdsa==0.13.2
 entrypoints==0.3
 Flask==1.1.2
-Flask-Cors==3.0.9
+Flask-Cors==4.0.1
 Flask-Migrate==2.5.3
 Flask-RESTful==0.3.8
 Flask-Script==2.0.6
