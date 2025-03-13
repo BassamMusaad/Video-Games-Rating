@@ -21,7 +21,7 @@ colorama==0.4.3
 cryptography==3.2.1
 decorator==4.4.2
 defusedxml==0.6.0
-Django==3.1.4
+Django==4.2.20
 docutils==0.15.2
 ecdsa==0.13.2
 entrypoints==0.3
@@ -42,7 +42,7 @@ ipython-genutils==0.2.0
 isort==4.3.18
 itsdangerous==1.1.0
 jedi==0.18.0
-Jinja2==2.10.1
+Jinja2==3.1.6
 jmespath==0.10.0
 joblib==1.0.1
 jose==1.0.0
